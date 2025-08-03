@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MaPass</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Welcome to MaPass</h1>
+    <p>
+      MaPassはパスワード生成アプリです。「パスワードを生成する」ボタンを押してパスワードを生成してください。
+    </p>
+
+    <label for="pass">生成されたパスワード</label>
+    <div>
+      <input type="password" id="pass" readonly />
+      <button id="toggleVisible" type="button">👁️</button>
+    </div>
+
+    <button id="copyBtn">コピーする</button>
+    <button id="genBtn">パスワードを生成する</button>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
