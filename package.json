@@ -1,55 +1,35 @@
 {
   "name": "mapass",
-  "productName": "mapass",
   "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "start": "electron .",
+    "build": "electron-builder --win"
   },
-  "keywords": [],
-  "author": "himaw",
-  "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "mapass"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
+  "build": {
+    "appId": "com.example.mapass",
+    "productName": "MaPass",
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "index.css"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "YOUR_GITHUB_USERNAME",
+      "repo": "MaPass"
     }
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
-  },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "electron": "18.2.3"
+    "electron": "^37.2.5",
+    "electron-builder": "^24.6.4"
   }
 }
